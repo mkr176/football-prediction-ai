@@ -1,0 +1,5 @@
+team_name,season,matches_played,wins,draws,losses,goals_for,goals_against,goal_difference,points,avg_possession,shots_per_game,shots_on_target_per_game,pass_accuracy,tackles_per_game,fouls_per_game,cards_per_game,form_last_5
+Arsenal,2022-23,38,25,8,5,75,35,40,83,58.5,15.2,5.8,88.2,18.5,11.2,2.1,WWDWW
+Manchester City,2022-23,38,25,8,5,75,35,40,83,58.5,15.2,5.8,88.2,18.5,11.2,2.1,WWDWW
+Liverpool,2022-23,38,25,8,5,75,35,40,83,58.5,15.2,5.8,88.2,18.5,11.2,2.1,WWDWW
+Chelsea,2022-23,38,25,8,5,75,35,40,83,58.5,15.2,5.8,88.2,18.5,11.2,2.1,WWDWW

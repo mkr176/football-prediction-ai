@@ -1,0 +1,4 @@
+player_name,team,position,goals,assists,minutes_played,shots_per_game,pass_accuracy,season
+Erling Haaland,Manchester City,Forward,27,5,2800,4.2,82.5,2023-24
+Harry Kane,Tottenham,Forward,25,3,2800,4.2,82.5,2023-24
+Mohamed Salah,Liverpool,Forward,22,8,2800,4.2,82.5,2023-24

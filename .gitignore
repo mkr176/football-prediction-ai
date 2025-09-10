@@ -1,0 +1,19 @@
+
+  __pycache__/
+  *.pyc
+  *.pyo
+  *.pyd
+  .Python
+  env/
+  venv/
+  .env
+  .venv
+  *.egg-info/
+  .pytest_cache/
+  .coverage
+  .DS_Store
+  *.log
+  models/*.pkl
+  data/*.csv
+  results/*.json
+  
