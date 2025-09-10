@@ -52,7 +52,7 @@ class WorldCupPredictor(MatchPredictor):
     
     def predict_group_stage(self):
         """Predict all group stage matches and determine group winners"""
-        print("🏆 WORLD CUP GROUP STAGE PREDICTIONS 🏆")
+        print(" WORLD CUP GROUP STAGE PREDICTIONS ")
         
         fixtures, groups = self.create_group_stage_fixtures()
         
@@ -146,7 +146,7 @@ class WorldCupPredictor(MatchPredictor):
                 draws = stats['points'] % 3
                 losses = stats['played'] - wins - draws
                 
-                qualifier = "✅" if team in group_data['qualifiers'] else "❌"
+                qualifier = "" if team in group_data['qualifiers'] else ""
                 
                 print(f"{team:<15} {stats['played']:>2} {wins:>2} {draws:>2} {losses:>2} "
                       f"{stats['gf']:>3} {stats['ga']:>3} {stats['gd']:>+4} {stats['points']:>4} {qualifier}")
@@ -235,7 +235,7 @@ class WorldCupPredictor(MatchPredictor):
         
         # Final
         print(f"\n{'='*50}")
-        print("🏆 WORLD CUP FINAL 🏆")
+        print(" WORLD CUP FINAL ")
         print(f"{'='*50}")
         
         if len(finalists) >= 2:
@@ -246,7 +246,7 @@ class WorldCupPredictor(MatchPredictor):
                     champion = finalists[0] if final_result['probabilities']['H'] > final_result['probabilities']['A'] else finalists[1]
                 
                 print(f"FINAL: {finalists[0]} vs {finalists[1]}")
-                print(f"🥇 WORLD CUP WINNER: {champion}")
+                print(f" WORLD CUP WINNER: {champion}")
                 print(f"Confidence: {final_result['confidence']:.1%}")
                 
                 return {
@@ -261,7 +261,7 @@ class WorldCupPredictor(MatchPredictor):
     
     def predict_full_tournament(self):
         """Predict the entire World Cup tournament"""
-        print("🌟 COMPLETE WORLD CUP PREDICTION 🌟")
+        print(" COMPLETE WORLD CUP PREDICTION ")
         print("Inspired by 85% accuracy AI predictions")
         
         # Group stage
@@ -277,7 +277,7 @@ class WorldCupPredictor(MatchPredictor):
         
         if tournament_result:
             print(f"\n{'='*60}")
-            print("🏆 FINAL TOURNAMENT PREDICTION 🏆")
+            print(" FINAL TOURNAMENT PREDICTION ")
             print(f"{'='*60}")
             print(f"Champion: {tournament_result['champion']}")
             print(f"Runner-up: {tournament_result['runner_up']}")
@@ -293,7 +293,7 @@ class WorldCupPredictor(MatchPredictor):
         print(f"Predictions saved to ../results/{filename}")
 
 def main():
-    print("🏆 World Cup Prediction System 🏆")
+    print(" World Cup Prediction System ")
     print("Targeting 85%+ accuracy like tennis predictions")
     
     predictor = WorldCupPredictor()

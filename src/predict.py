@@ -174,8 +174,8 @@ class MatchPredictor:
         
         confidence_level = "High" if confidence > 0.6 else "Medium" if confidence > 0.45 else "Low"
         
-        print(f"\n📊 Prediction: {outcome}")
-        print(f"🎯 Confidence Level: {confidence_level}")
+        print(f"\n Prediction: {outcome}")
+        print(f" Confidence Level: {confidence_level}")
     
     def predict_multiple_matches(self, matches):
         """Predict multiple matches"""
@@ -194,7 +194,7 @@ class MatchPredictor:
     
     def predict_world_cup_matches(self):
         """Predict World Cup matches - example fixtures"""
-        print("🏆 WORLD CUP PREDICTIONS 🏆")
+        print(" WORLD CUP PREDICTIONS ")
         
         # Example World Cup matches (you can update these)
         world_cup_matches = [

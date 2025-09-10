@@ -114,7 +114,7 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
     
     def predict_group_stage(self):
         """Predict World Cup group stage using tennis-inspired model"""
-        print(f"🎾 WORLD CUP GROUP STAGE PREDICTION")
+        print(f" WORLD CUP GROUP STAGE PREDICTION")
         print(f"{'='*60}")
         print("Using tennis-inspired ELO approach for 85% accuracy target")
         
@@ -123,7 +123,7 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
         all_matches = []
         
         for group_name, teams in groups.items():
-            print(f"\n🏟️  GROUP {group_name}: {', '.join(teams)}")
+            print(f"\n  GROUP {group_name}: {', '.join(teams)}")
             
             group_matches = []
             group_standings = {team: {'points': 0, 'gf': 0, 'ga': 0, 'gd': 0, 'played': 0} for team in teams}
@@ -148,14 +148,14 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
                     
                     if match['result'] == 'H':
                         team1_stats['points'] += 3
-                        print(f"   {team1} {match['home_score']}-{match['away_score']} {team2} ✅")
+                        print(f"   {team1} {match['home_score']}-{match['away_score']} {team2} ")
                     elif match['result'] == 'A':
                         team2_stats['points'] += 3
-                        print(f"   {team1} {match['home_score']}-{match['away_score']} {team2} ✅")
+                        print(f"   {team1} {match['home_score']}-{match['away_score']} {team2} ")
                     else:
                         team1_stats['points'] += 1
                         team2_stats['points'] += 1
-                        print(f"   {team1} {match['home_score']}-{match['away_score']} {team2} ⚖️")
+                        print(f"   {team1} {match['home_score']}-{match['away_score']} {team2} ⚖")
             
             # Calculate goal differences and sort standings
             for team in teams:
@@ -177,7 +177,7 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
             qualifiers = []
             for i, team in enumerate(sorted_teams):
                 stats = group_standings[team]
-                qualifier = "🏆" if i < 2 else "❌"
+                qualifier = "" if i < 2 else ""
                 if i < 2:
                     qualifiers.append(team)
                 
@@ -195,7 +195,7 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
     
     def predict_knockout_stage(self, group_results):
         """Predict knockout stage using tennis elimination approach"""
-        print(f"\n🎾 WORLD CUP KNOCKOUT STAGE")
+        print(f"\n WORLD CUP KNOCKOUT STAGE")
         print(f"{'='*60}")
         print("Tennis-inspired elimination tournament prediction")
         
@@ -210,7 +210,7 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
             group_winners.append(qualifiers[0])
             group_runners_up.append(qualifiers[1])
         
-        print(f"\n🏆 QUALIFIED TEAMS ({len(all_qualifiers)}):")
+        print(f"\n QUALIFIED TEAMS ({len(all_qualifiers)}):")
         print("Group Winners:", ", ".join(group_winners))
         print("Runners-up:", ", ".join(group_runners_up))
         
@@ -226,7 +226,7 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
             (group_winners[7], group_runners_up[6])   # H1 vs G2
         ]
         
-        print(f"\n⚡ ROUND OF 16:")
+        print(f"\n ROUND OF 16:")
         quarter_finalists = []
         
         for i, (team1, team2) in enumerate(round_16_matches, 1):
@@ -238,7 +238,7 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
                   f"({winner['confidence']:.0%} confidence)")
         
         # Quarter-finals
-        print(f"\n🔥 QUARTER-FINALS:")
+        print(f"\n QUARTER-FINALS:")
         semi_finalists = []
         qf_matches = [
             (quarter_finalists[0], quarter_finalists[1]),
@@ -256,7 +256,7 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
                   f"({winner['confidence']:.0%} confidence)")
         
         # Semi-finals
-        print(f"\n🏆 SEMI-FINALS:")
+        print(f"\n SEMI-FINALS:")
         finalists = []
         sf_matches = [
             (semi_finalists[0], semi_finalists[1]),
@@ -272,15 +272,15 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
                   f"({winner['confidence']:.0%} confidence)")
         
         # Final
-        print(f"\n🥇 WORLD CUP FINAL:")
+        print(f"\n WORLD CUP FINAL:")
         final_result = self.simulate_knockout_match(finalists[0], finalists[1])
         champion = final_result['winner']
         runner_up = finalists[1] if champion == finalists[0] else finalists[0]
         
         print(f"FINAL: {finalists[0]} vs {finalists[1]}")
-        print(f"🏆 WORLD CUP CHAMPION: {champion}")
-        print(f"🥈 Runner-up: {runner_up}")
-        print(f"📊 Final Confidence: {final_result['confidence']:.0%}")
+        print(f" WORLD CUP CHAMPION: {champion}")
+        print(f" Runner-up: {runner_up}")
+        print(f" Final Confidence: {final_result['confidence']:.0%}")
         
         return {
             'champion': champion,
@@ -330,8 +330,8 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
     
     def predict_full_tournament(self):
         """Predict complete World Cup tournament"""
-        print(f"🌟 COMPLETE WORLD CUP PREDICTION")
-        print(f"🎾 Tennis-Inspired AI (85% Accuracy Target)")
+        print(f" COMPLETE WORLD CUP PREDICTION")
+        print(f" Tennis-Inspired AI (85% Accuracy Target)")
         print(f"{'='*70}")
         
         # Group stage
@@ -342,13 +342,13 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
         
         # Final summary
         print(f"\n{'='*70}")
-        print(f"🏆 FINAL WORLD CUP PREDICTION SUMMARY")
+        print(f" FINAL WORLD CUP PREDICTION SUMMARY")
         print(f"{'='*70}")
-        print(f"🥇 Champion: {tournament_result['champion']}")
-        print(f"🥈 Runner-up: {tournament_result['runner_up']}")
-        print(f"🥉 Semi-finalists: {', '.join(tournament_result['semi_finalists'])}")
-        print(f"📊 Model Confidence: {tournament_result['final_confidence']:.0%}")
-        print(f"🎾 Tennis-Inspired Approach: ELO-based strength ratings")
+        print(f" Champion: {tournament_result['champion']}")
+        print(f" Runner-up: {tournament_result['runner_up']}")
+        print(f" Semi-finalists: {', '.join(tournament_result['semi_finalists'])}")
+        print(f" Model Confidence: {tournament_result['final_confidence']:.0%}")
+        print(f" Tennis-Inspired Approach: ELO-based strength ratings")
         print(f"{'='*70}")
         
         # Save predictions
@@ -376,12 +376,12 @@ class EnhancedWorldCupPredictor(EnhancedMatchPredictor):
         with open(filename, 'w') as f:
             json.dump(prediction_data, f, indent=2, default=str)
         
-        print(f"💾 Tournament predictions saved to {filename}")
+        print(f" Tournament predictions saved to {filename}")
 
 def main():
     predictor = EnhancedWorldCupPredictor()
     
-    print("🎾⚽ Enhanced World Cup Predictor")
+    print(" Enhanced World Cup Predictor")
     print("Tennis-Inspired AI targeting 85% accuracy")
     
     result = predictor.predict_full_tournament()

@@ -30,11 +30,11 @@ class EnhancedMatchPredictor:
             # Load ELO system
             self.elo_system.load_elo_data(f"{self.models_dir}/elo_system.json")
             
-            print("✅ Enhanced tennis-inspired model loaded successfully")
-            print(f"🎾 Model features: {len(self.feature_columns)} (ELO-enhanced)")
+            print(" Enhanced tennis-inspired model loaded successfully")
+            print(f" Model features: {len(self.feature_columns)} (ELO-enhanced)")
             return True
         except Exception as e:
-            print(f"❌ Error loading enhanced model: {e}")
+            print(f" Error loading enhanced model: {e}")
             print("Please train the enhanced model first using enhanced_train_models.py")
             return False
     
@@ -118,9 +118,9 @@ class EnhancedMatchPredictor:
         if match_date is None:
             match_date = datetime.now().strftime('%Y-%m-%d')
         
-        print(f"🎾 Enhanced Prediction: {home_team} vs {away_team}")
+        print(f" Enhanced Prediction: {home_team} vs {away_team}")
         print(f"📅 Date: {match_date}")
-        print(f"🏆 Competition: {competition.upper()}")
+        print(f" Competition: {competition.upper()}")
         
         # Create features
         match_features = self.create_prediction_features(home_team, away_team, competition, match_date)
@@ -178,68 +178,68 @@ class EnhancedMatchPredictor:
     def _print_enhanced_prediction(self, results, features):
         """Print detailed prediction results (tennis-inspired format)"""
         print(f"\n{'='*70}")
-        print(f"🎾 TENNIS-INSPIRED FOOTBALL PREDICTION")
+        print(f" TENNIS-INSPIRED FOOTBALL PREDICTION")
         print(f"{'='*70}")
         
         print(f"Match: {results['home_team']} vs {results['away_team']}")
         print(f"Competition: {results['competition'].upper()}")
         print(f"Date: {results['match_date']}")
         
-        print(f"\n🎯 PREDICTION RESULTS:")
+        print(f"\n PREDICTION RESULTS:")
         prediction = results['prediction']
         if prediction == 'H':
-            outcome = f"🏠 {results['home_team']} to WIN"
+            outcome = f" {results['home_team']} to WIN"
         elif prediction == 'A':
-            outcome = f"✈️  {results['away_team']} to WIN"
+            outcome = f"  {results['away_team']} to WIN"
         else:
-            outcome = "🤝 DRAW"
+            outcome = " DRAW"
         
         print(f"   Result: {outcome}")
         print(f"   Confidence: {results['confidence']:.1%} ({results['confidence_level']})")
         
-        print(f"\n📊 WIN PROBABILITIES:")
+        print(f"\n WIN PROBABILITIES:")
         prob = results['probabilities']
-        print(f"   🏠 {results['home_team']:<20} {prob['H']:.1%}")
-        print(f"   🤝 Draw{'':<16} {prob['D']:.1%}")
-        print(f"   ✈️  {results['away_team']:<20} {prob['A']:.1%}")
+        print(f"    {results['home_team']:<20} {prob['H']:.1%}")
+        print(f"    Draw{'':<16} {prob['D']:.1%}")
+        print(f"     {results['away_team']:<20} {prob['A']:.1%}")
         
-        print(f"\n🎾 ELO ANALYSIS (Key Feature from Tennis Model):")
+        print(f"\n ELO ANALYSIS (Key Feature from Tennis Model):")
         print(f"   ELO Difference: {features['elo_difference']:+.0f} points")
         print(f"   Assessment: {results['elo_assessment']}")
         print(f"   {results['home_team']} ELO: {features['home_overall_elo']:.0f}")
         print(f"   {results['away_team']} ELO: {features['away_overall_elo']:.0f}")
         
-        print(f"\n📈 RECENT FORM:")
-        print(f"   🏠 {results['home_team']} Win Rate: {features['home_recent_win_rate']:.1%}")
-        print(f"   ✈️  {results['away_team']} Win Rate: {features['away_recent_win_rate']:.1%}")
+        print(f"\n RECENT FORM:")
+        print(f"    {results['home_team']} Win Rate: {features['home_recent_win_rate']:.1%}")
+        print(f"     {results['away_team']} Win Rate: {features['away_recent_win_rate']:.1%}")
         print(f"   Form Difference: {features['form_difference']:+.3f}")
         
         # Confidence assessment (tennis-inspired)
         if results['confidence'] >= 0.85:
-            confidence_msg = "🎯 VERY HIGH CONFIDENCE (Tennis-level accuracy expected)"
+            confidence_msg = " VERY HIGH CONFIDENCE (Tennis-level accuracy expected)"
         elif results['confidence'] >= 0.75:
-            confidence_msg = "✅ HIGH CONFIDENCE (Strong prediction)"
+            confidence_msg = " HIGH CONFIDENCE (Strong prediction)"
         elif results['confidence'] >= 0.65:
-            confidence_msg = "🔄 MEDIUM CONFIDENCE (Decent prediction)"
+            confidence_msg = " MEDIUM CONFIDENCE (Decent prediction)"
         else:
-            confidence_msg = "⚠️  LOW CONFIDENCE (Uncertain match)"
+            confidence_msg = "  LOW CONFIDENCE (Uncertain match)"
         
         print(f"\n{confidence_msg}")
         
         # Match importance
         importance = features['competition_weight']
         if importance >= 50:
-            print(f"🏆 HIGH IMPORTANCE MATCH (Weight: {importance})")
+            print(f" HIGH IMPORTANCE MATCH (Weight: {importance})")
         elif importance >= 35:
-            print(f"⚽ IMPORTANT MATCH (Weight: {importance})")
+            print(f" IMPORTANT MATCH (Weight: {importance})")
         else:
-            print(f"🎮 REGULAR MATCH (Weight: {importance})")
+            print(f" REGULAR MATCH (Weight: {importance})")
     
     def predict_multiple_matches_enhanced(self, matches):
         """Predict multiple matches with enhanced model"""
         predictions = []
         
-        print(f"🎾 Predicting {len(matches)} matches with tennis-inspired model...")
+        print(f" Predicting {len(matches)} matches with tennis-inspired model...")
         
         for i, match in enumerate(matches, 1):
             print(f"\n--- Match {i}/{len(matches)} ---")
@@ -261,12 +261,12 @@ class EnhancedMatchPredictor:
         if not predictions:
             return
         
-        print(f"\n🎾 PREDICTION CONFIDENCE ANALYSIS (Tennis-Inspired)")
+        print(f"\n PREDICTION CONFIDENCE ANALYSIS (Tennis-Inspired)")
         print(f"{'='*60}")
         
         confidences = [p['confidence'] for p in predictions]
         
-        print(f"📊 Confidence Statistics:")
+        print(f" Confidence Statistics:")
         print(f"   Average Confidence: {np.mean(confidences):.1%}")
         print(f"   Highest Confidence: {max(confidences):.1%}")
         print(f"   Lowest Confidence: {min(confidences):.1%}")
@@ -279,15 +279,15 @@ class EnhancedMatchPredictor:
         
         total = len(predictions)
         
-        print(f"\n📈 Confidence Distribution:")
-        print(f"   🎯 Very High (85%+): {very_high:2d} ({very_high/total*100:.0f}%)")
-        print(f"   ✅ High (75-84%):    {high:2d} ({high/total*100:.0f}%)")
-        print(f"   🔄 Medium (65-74%):  {medium:2d} ({medium/total*100:.0f}%)")
-        print(f"   ⚠️  Low (<65%):       {low:2d} ({low/total*100:.0f}%)")
+        print(f"\n Confidence Distribution:")
+        print(f"    Very High (85%+): {very_high:2d} ({very_high/total*100:.0f}%)")
+        print(f"    High (75-84%):    {high:2d} ({high/total*100:.0f}%)")
+        print(f"    Medium (65-74%):  {medium:2d} ({medium/total*100:.0f}%)")
+        print(f"     Low (<65%):       {low:2d} ({low/total*100:.0f}%)")
         
         # Tennis-level predictions
         tennis_level = very_high + high
-        print(f"\n🎾 Tennis-Level Predictions (75%+ confidence): {tennis_level}/{total} ({tennis_level/total*100:.0f}%)")
+        print(f"\n Tennis-Level Predictions (75%+ confidence): {tennis_level}/{total} ({tennis_level/total*100:.0f}%)")
     
     def save_predictions(self, predictions, filename=None):
         """Save predictions to file"""
@@ -303,13 +303,13 @@ class EnhancedMatchPredictor:
         with open(filepath, 'w') as f:
             json.dump(predictions, f, indent=2, default=str)
         
-        print(f"💾 Predictions saved to {filepath}")
+        print(f" Predictions saved to {filepath}")
 
 def main():
     predictor = EnhancedMatchPredictor()
     
-    print("🎾 Enhanced Football Prediction System")
-    print("🚀 Tennis-Inspired AI (Targeting 85% Accuracy)")
+    print(" Enhanced Football Prediction System")
+    print(" Tennis-Inspired AI (Targeting 85% Accuracy)")
     
     while True:
         print(f"\n{'='*50}")
@@ -345,13 +345,13 @@ def main():
             predictor.analyze_prediction_confidence(predictions)
             
         elif choice == '3':
-            print("🏆 World Cup simulation with tennis-inspired model...")
+            print(" World Cup simulation with tennis-inspired model...")
             from enhanced_world_cup_predictor import EnhancedWorldCupPredictor
             wc_predictor = EnhancedWorldCupPredictor()
             wc_predictor.predict_full_tournament()
             
         elif choice == '4':
-            print("⚽ Premier League predictions...")
+            print(" Premier League predictions...")
             matches = [
                 {'home_team': 'Manchester City', 'away_team': 'Arsenal', 'competition': 'premier_league'},
                 {'home_team': 'Liverpool', 'away_team': 'Chelsea', 'competition': 'premier_league'},
@@ -362,7 +362,7 @@ def main():
             predictor.analyze_prediction_confidence(predictions)
             
         elif choice == '5':
-            print("🏆 Champions League predictions...")
+            print(" Champions League predictions...")
             matches = [
                 {'home_team': 'Real Madrid', 'away_team': 'Manchester City', 'competition': 'champions_league'},
                 {'home_team': 'Barcelona', 'away_team': 'PSG', 'competition': 'champions_league'},
@@ -373,7 +373,7 @@ def main():
             predictor.analyze_prediction_confidence(predictions)
             
         elif choice == '6':
-            print("🇪🇺 European Championship (Euros) predictions...")
+            print(" European Championship (Euros) predictions...")
             matches = [
                 {'home_team': 'France', 'away_team': 'Germany', 'competition': 'euros'},
                 {'home_team': 'Spain', 'away_team': 'Italy', 'competition': 'euros'},
@@ -384,7 +384,7 @@ def main():
             predictor.analyze_prediction_confidence(predictions)
             
         elif choice == '7':
-            print("🏆 Copa America predictions...")
+            print(" Copa America predictions...")
             matches = [
                 {'home_team': 'Brazil', 'away_team': 'Argentina', 'competition': 'copa_america'},
                 {'home_team': 'Uruguay', 'away_team': 'Colombia', 'competition': 'copa_america'},
@@ -395,7 +395,7 @@ def main():
             predictor.analyze_prediction_confidence(predictions)
             
         elif choice == '8':
-            print("⚙️  Custom Tournament...")
+            print("  Custom Tournament...")
             print("Enter your own matches:")
             custom_matches = []
             
@@ -419,11 +419,11 @@ def main():
                 print("No matches entered.")
             
         elif choice == '9':
-            print("🎾 Thanks for using the tennis-inspired football predictor!")
+            print(" Thanks for using the tennis-inspired football predictor!")
             break
         
         else:
-            print("❌ Invalid choice. Please try again.")
+            print(" Invalid choice. Please try again.")
 
 if __name__ == "__main__":
     main()

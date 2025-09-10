@@ -337,6 +337,6 @@ if __name__ == "__main__":
     print(f"Best accuracy achieved: {best_score:.4f} ({best_score*100:.2f}%)")
     
     if best_score >= 0.85:
-        print("🎉 TARGET ACHIEVED! 85%+ accuracy reached!")
+        print(" TARGET ACHIEVED! 85%+ accuracy reached!")
     else:
         print(f"Target not yet reached. Need to improve by {(0.85 - best_score)*100:.2f} percentage points.")

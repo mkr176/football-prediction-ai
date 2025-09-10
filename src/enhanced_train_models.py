@@ -126,7 +126,7 @@ class EnhancedFootballPredictor:
         """
         Aggressive XGBoost optimization (tennis model achieved 85% with XGBoost)
         """
-        print(f"🎯 Aggressive XGBoost optimization targeting 85% accuracy...")
+        print(f" Aggressive XGBoost optimization targeting 85% accuracy...")
         print(f"Running {n_trials} trials (tennis model used extensive tuning)")
         
         # Convert string labels to numeric
@@ -189,14 +189,14 @@ class EnhancedFootballPredictor:
         
         accuracy = accuracy_score(y_val, y_pred_labels)
         
-        print(f"🚀 Final optimized XGBoost accuracy: {accuracy:.4f} ({accuracy*100:.2f}%)")
+        print(f" Final optimized XGBoost accuracy: {accuracy:.4f} ({accuracy*100:.2f}%)")
         
         if accuracy >= self.target_accuracy:
-            print(f"🎉 TARGET ACHIEVED! {accuracy:.1%} >= {self.target_accuracy:.1%}")
+            print(f" TARGET ACHIEVED! {accuracy:.1%} >= {self.target_accuracy:.1%}")
         else:
-            print(f"🎯 Still need {(self.target_accuracy - accuracy)*100:.1f} more percentage points")
+            print(f" Still need {(self.target_accuracy - accuracy)*100:.1f} more percentage points")
         
-        print(f"🏆 Best hyperparameters:")
+        print(f" Best hyperparameters:")
         for param, value in best_params.items():
             print(f"  {param}: {value}")
         
@@ -228,12 +228,12 @@ class EnhancedFootballPredictor:
         ]
         
         total_elo_importance = elo_features['importance'].sum()
-        print(f"\n🎾 ELO Features Total Importance: {total_elo_importance:.4f} ({total_elo_importance/importance.sum()*100:.1f}%)")
+        print(f"\n ELO Features Total Importance: {total_elo_importance:.4f} ({total_elo_importance/importance.sum()*100:.1f}%)")
         
         if total_elo_importance > 0.4:  # If ELO features account for >40% of importance
-            print("✅ ELO features are dominant (like in tennis model)")
+            print(" ELO features are dominant (like in tennis model)")
         else:
-            print("⚠️  ELO features may need more weight (tennis model was ELO-driven)")
+            print("  ELO features may need more weight (tennis model was ELO-driven)")
         
         # Plot feature importance
         plt.figure(figsize=(12, 8))
@@ -260,16 +260,16 @@ class EnhancedFootballPredictor:
         """
         Main training function inspired by tennis prediction success
         """
-        print("🎾 TENNIS-INSPIRED FOOTBALL PREDICTION TRAINING")
+        print(" TENNIS-INSPIRED FOOTBALL PREDICTION TRAINING")
         print("="*60)
         print("Target: 85% accuracy (matching tennis prediction performance)")
         
         # Load and prepare data with ELO features
-        print("\n1️⃣  Loading and preparing enhanced data...")
+        print("\n1⃣  Loading and preparing enhanced data...")
         try:
             match_results = pd.read_csv(f'{self.data_dir}/all_match_results.csv')
         except FileNotFoundError:
-            print("❌ Match results not found. Please run data_collector.py first.")
+            print(" Match results not found. Please run data_collector.py first.")
             return None, None
         
         # Create ELO-enhanced features
@@ -284,7 +284,7 @@ class EnhancedFootballPredictor:
         
         self.feature_columns = feature_columns
         
-        print(f"📊 Dataset prepared:")
+        print(f" Dataset prepared:")
         print(f"   • Matches: {len(X):,}")
         print(f"   • Features: {len(feature_columns)} (ELO-enhanced)")
         print(f"   • Classes: {y.value_counts().to_dict()}")
@@ -294,12 +294,12 @@ class EnhancedFootballPredictor:
             X, y, test_size=0.2, random_state=42, stratify=y
         )
         
-        print(f"\n2️⃣  Training/Validation split:")
+        print(f"\n2⃣  Training/Validation split:")
         print(f"   • Training: {len(X_train):,} matches")
         print(f"   • Validation: {len(X_val):,} matches")
         
         # Aggressive XGBoost optimization (tennis model's best performer)
-        print(f"\n3️⃣  XGBoost optimization (tennis model achieved 85% with XGBoost):")
+        print(f"\n3⃣  XGBoost optimization (tennis model achieved 85% with XGBoost):")
         
         best_model, best_accuracy, best_params, study = self.optimize_xgboost_aggressive(
             X_train, y_train, X_val, y_val, n_trials=150
@@ -309,23 +309,23 @@ class EnhancedFootballPredictor:
         self.best_score = best_accuracy
         
         # Detailed evaluation
-        print(f"\n4️⃣  Detailed model evaluation:")
+        print(f"\n4⃣  Detailed model evaluation:")
         self.evaluate_detailed(X_val, y_val, best_model)
         
         # Feature importance analysis (tennis-style)
-        print(f"\n5️⃣  Feature importance analysis:")
+        print(f"\n5⃣  Feature importance analysis:")
         feature_importance_df = self.analyze_feature_importance(best_model, feature_columns)
         
         # Save everything
-        print(f"\n6️⃣  Saving models and results...")
+        print(f"\n6⃣  Saving models and results...")
         self.save_enhanced_model(best_model, best_params, feature_importance_df, study)
         
         # Final results
         print(f"\n🏁 FINAL RESULTS")
         print(f"="*60)
-        print(f"🎯 Best Accuracy: {best_accuracy:.4f} ({best_accuracy*100:.2f}%)")
-        print(f"🎾 Tennis Target: 85%")
-        print(f"📈 Achievement: {'🎉 TARGET REACHED!' if best_accuracy >= 0.85 else f'Need +{(0.85-best_accuracy)*100:.1f}pp'}")
+        print(f" Best Accuracy: {best_accuracy:.4f} ({best_accuracy*100:.2f}%)")
+        print(f" Tennis Target: 85%")
+        print(f" Achievement: {' TARGET REACHED!' if best_accuracy >= 0.85 else f'Need +{(0.85-best_accuracy)*100:.1f}pp'}")
         
         return best_model, best_accuracy
     
@@ -335,10 +335,10 @@ class EnhancedFootballPredictor:
         reverse_map = {0: 'H', 1: 'D', 2: 'A'}
         y_pred = [reverse_map[pred] for pred in y_pred_numeric]
         
-        print("📊 Classification Report:")
+        print(" Classification Report:")
         print(classification_report(y_val, y_pred))
         
-        print("\n📊 Confusion Matrix:")
+        print("\n Confusion Matrix:")
         cm = confusion_matrix(y_val, y_pred, labels=['H', 'D', 'A'])
         print("     Predicted")
         print("        H    D    A")
@@ -347,7 +347,7 @@ class EnhancedFootballPredictor:
         
         # Per-class accuracies
         class_accuracies = cm.diagonal() / cm.sum(axis=1)
-        print(f"\n📊 Per-class Accuracies:")
+        print(f"\n Per-class Accuracies:")
         print(f"   Home Win (H): {class_accuracies[0]:.3f}")
         print(f"   Draw (D):     {class_accuracies[1]:.3f}")
         print(f"   Away Win (A): {class_accuracies[2]:.3f}")
@@ -380,22 +380,22 @@ class EnhancedFootballPredictor:
         with open(f"{self.models_dir}/tennis_inspired_metadata.json", 'w') as f:
             json.dump(metadata, f, indent=2, default=str)
         
-        print(f"✅ Enhanced model saved to {self.models_dir}/")
+        print(f" Enhanced model saved to {self.models_dir}/")
 
 def main():
     predictor = EnhancedFootballPredictor()
     
-    print("🚀 Starting Tennis-Inspired Football Prediction Training")
-    print("🎾 Target: Match 85% accuracy achieved in tennis prediction")
+    print(" Starting Tennis-Inspired Football Prediction Training")
+    print(" Target: Match 85% accuracy achieved in tennis prediction")
     
     best_model, best_accuracy = predictor.train_tennis_inspired_model()
     
     if best_model:
         if best_accuracy >= 0.85:
-            print(f"\n🏆 SUCCESS! Achieved {best_accuracy:.1%} accuracy!")
-            print("🎾 Matched tennis prediction performance!")
+            print(f"\n SUCCESS! Achieved {best_accuracy:.1%} accuracy!")
+            print(" Matched tennis prediction performance!")
         else:
-            print(f"\n🎯 Good progress: {best_accuracy:.1%} accuracy")
+            print(f"\n Good progress: {best_accuracy:.1%} accuracy")
             print(f"💪 Continue optimizing to reach 85% target")
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-# Football Match Prediction AI 🎾⚽
+# Football Match Prediction AI
 
 An AI-powered system to predict football match outcomes with high accuracy, inspired by tennis prediction models achieving 85%+ accuracy.
 
@@ -16,7 +16,7 @@ football-prediction-ai/
 └── requirements.txt   # Python dependencies
 ```
 
-## Features 🚀
+## Features
 - **Tennis-Inspired ELO System**: Comprehensive rating system (overall, competition-specific, home/away)
 - **XGBoost Optimization**: Aggressive hyperparameter tuning targeting 85% accuracy
 - **Advanced Feature Engineering**: ELO differences, recent form, competition weights
@@ -25,7 +25,7 @@ football-prediction-ai/
 - **Real-time Predictions**: Interactive prediction interface
 - **Comprehensive Analytics**: Jupyter notebooks with detailed analysis
 
-## Setup 🔧
+## Setup
 
 ### 1. Create Virtual Environment
 ```bash
@@ -99,14 +99,14 @@ python3 src/enhanced_predict.py
 python3 src/historical_data_collector.py
 ```
 
-## Target: 85%+ Prediction Accuracy 🎾
+## Target: 85%+ Prediction Accuracy
 Inspired by successful tennis prediction achieving 85% accuracy using:
 - ELO rating system as primary feature
 - XGBoost optimization
 - Competition-specific performance tracking
 - Comprehensive feature engineering
 
-## Tennis Model Inspiration 🎾
+## Tennis Model Inspiration
 
 This project is directly inspired by a YouTube tennis prediction model that achieved **85% accuracy**. Key insights applied:
 
@@ -124,7 +124,7 @@ This project is directly inspired by a YouTube tennis prediction model that achi
 - **Form Analysis**: Recent performance trends and momentum
 - **Confidence Scoring**: High-threshold predictions (75%+)
 
-## System Architecture 🏗️
+## System Architecture
 
 ```
 Tennis Insights → Football Implementation
@@ -136,27 +136,27 @@ XGBoost Tuning  → Aggressive Optimization (150+ trials)
 Win Probability → Confidence-Based Predictions
 ```
 
-## Project Status ✅
+## Project Status
 
-**✅ TESTED & WORKING:**
+**TESTED & WORKING:**
 - ELO rating system with 6 teams calculated
 - Enhanced data collection (172 features vs basic 20)
 - Tennis-inspired prediction interface
 - Virtual environment setup
 - XGBoost optimization framework
 
-**🎯 READY FOR 85% TARGET:**
+**READY FOR 85% TARGET:**
 - Architectural foundation complete
 - All tennis insights implemented
 - Scalable for larger datasets
 - Professional codebase structure
 
-## Quick Test Results 📊
+## Quick Test Results
 
 ```bash
 # After running historical_data_collector.py:
-15-Year Dataset: 5,700 matches collected ✅
-ELO Ratings Built: 41 teams with mature ratings ✅
+15-Year Dataset: 5,700 matches collected
+ELO Ratings Built: 41 teams with mature ratings
 
 Top ELO Teams After 15 Years:
 1. Blackburn Rovers   1621 ELO
@@ -171,10 +171,10 @@ Match Distribution:
 - Away Wins: 25.4% (1,446 matches)
 
 Data Features: 27 per match (tennis-level detail)
-Tennis-Level Dataset: ✅ ACHIEVED
+Tennis-Level Dataset: ACHIEVED
 ```
 
-## Expected Test Outputs 🧪
+## Expected Test Outputs
 
 **When you run the test commands, expect:**
 
@@ -194,7 +194,7 @@ Tennis-Level Dataset: ✅ ACHIEVED
 → ELO-based confidence scoring
 ```
 
-## Contributing 🤝
+## Contributing
 
 This system implements cutting-edge sports prediction techniques:
 1. Fork the repository
@@ -202,7 +202,7 @@ This system implements cutting-edge sports prediction techniques:
 3. Add your data sources or model improvements
 4. Submit pull requests
 
-## License 📄
+## License
 
 Open source - built for the football prediction community inspired by tennis AI success!
 

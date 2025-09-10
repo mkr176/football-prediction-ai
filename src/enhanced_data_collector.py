@@ -46,7 +46,7 @@ class EnhancedFootballDataCollector:
         Collect comprehensive team statistics (tennis-inspired detail level)
         Like tennis model's detailed player stats for every match
         """
-        print(f"📊 Collecting comprehensive team stats for {league} {season}...")
+        print(f" Collecting comprehensive team stats for {league} {season}...")
         
         # Enhanced team statistics (much more detailed than basic version)
         comprehensive_teams_data = []
@@ -160,7 +160,7 @@ class EnhancedFootballDataCollector:
         
         df = pd.DataFrame(comprehensive_teams_data)
         df.to_csv(f'{self.data_dir}/comprehensive_team_stats_{season}.csv', index=False)
-        print(f"✅ Saved comprehensive team stats ({len(df)} teams, {len(df.columns)} features)")
+        print(f" Saved comprehensive team stats ({len(df)} teams, {len(df.columns)} features)")
         return df
     
     def collect_detailed_match_events(self, league='premier_league', season='2023-24'):
@@ -169,7 +169,7 @@ class EnhancedFootballDataCollector:
         Every goal, card, substitution, shot, save - the football equivalent of 
         "every single break point, every single double fault"
         """
-        print(f"🎯 Collecting detailed match events for {league} {season}...")
+        print(f" Collecting detailed match events for {league} {season}...")
         
         match_events = []
         
@@ -279,7 +279,7 @@ class EnhancedFootballDataCollector:
         
         df = pd.DataFrame(match_events)
         df.to_csv(f'{self.data_dir}/detailed_match_events_{season}.csv', index=False)
-        print(f"✅ Saved detailed match events ({len(df)} matches, {len(df.columns)} features)")
+        print(f" Saved detailed match events ({len(df)} matches, {len(df.columns)} features)")
         return df
     
     def collect_player_level_stats(self, league='premier_league', season='2023-24'):
@@ -388,14 +388,14 @@ class EnhancedFootballDataCollector:
         
         df = pd.DataFrame(player_stats)
         df.to_csv(f'{self.data_dir}/detailed_player_stats_{season}.csv', index=False)
-        print(f"✅ Saved detailed player stats ({len(df)} players, {len(df.columns)} features)")
+        print(f" Saved detailed player stats ({len(df)} players, {len(df.columns)} features)")
         return df
     
     def collect_all_comprehensive_data(self, seasons=['2022-23', '2023-24']):
         """
         Collect all comprehensive data (tennis-inspired approach)
         """
-        print(f"\n🎾 COMPREHENSIVE DATA COLLECTION (Tennis-Inspired)")
+        print(f"\n COMPREHENSIVE DATA COLLECTION (Tennis-Inspired)")
         print(f"{'='*60}")
         print("Collecting detailed statistics like tennis model:")
         print("• Every match event (shots, passes, tackles)")
@@ -431,13 +431,13 @@ class EnhancedFootballDataCollector:
         combined_match_events.to_csv(f'{self.data_dir}/comprehensive_match_events.csv', index=False)
         combined_player_stats.to_csv(f'{self.data_dir}/comprehensive_player_stats.csv', index=False)
         
-        print(f"\n🏆 COMPREHENSIVE DATA COLLECTION COMPLETE")
+        print(f"\n COMPREHENSIVE DATA COLLECTION COMPLETE")
         print(f"{'='*60}")
-        print(f"📊 Team Stats: {len(combined_team_stats):,} records, {len(combined_team_stats.columns)} features")
-        print(f"⚽ Match Events: {len(combined_match_events):,} records, {len(combined_match_events.columns)} features")
+        print(f" Team Stats: {len(combined_team_stats):,} records, {len(combined_team_stats.columns)} features")
+        print(f" Match Events: {len(combined_match_events):,} records, {len(combined_match_events.columns)} features")
         print(f"👥 Player Stats: {len(combined_player_stats):,} records, {len(combined_player_stats.columns)} features")
-        print(f"📈 Total Features: {len(combined_team_stats.columns) + len(combined_match_events.columns) + len(combined_player_stats.columns)}")
-        print("\n🎾 Data richness matches tennis model approach!")
+        print(f" Total Features: {len(combined_team_stats.columns) + len(combined_match_events.columns) + len(combined_player_stats.columns)}")
+        print("\n Data richness matches tennis model approach!")
         print("Ready for 85% accuracy target training.")
 
 if __name__ == "__main__":

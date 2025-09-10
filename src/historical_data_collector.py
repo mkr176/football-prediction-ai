@@ -258,7 +258,7 @@ class HistoricalFootballDataCollector:
     
     def collect_15_year_history(self):
         """Collect comprehensive 15-year historical data"""
-        print(f"🎾 COLLECTING 15 YEARS OF FOOTBALL DATA (2009-2024)")
+        print(f" COLLECTING 15 YEARS OF FOOTBALL DATA (2009-2024)")
         print(f"{'='*60}")
         print("Inspired by tennis model's 95,000+ match comprehensive dataset")
         print("Target: Create robust foundation for 85% accuracy")
@@ -283,7 +283,7 @@ class HistoricalFootballDataCollector:
             all_team_stats.extend(season_team_stats)
             total_matches += len(season_matches)
             
-            print(f"   ✅ Generated: {len(season_matches)} matches, {len(season_team_stats)} team records")
+            print(f"    Generated: {len(season_matches)} matches, {len(season_team_stats)} team records")
             
             # Save season data
             season_df = pd.DataFrame(season_matches)
@@ -293,7 +293,7 @@ class HistoricalFootballDataCollector:
             team_stats_df.to_csv(f'{self.data_dir}/historical/team_stats_{season}.csv', index=False)
         
         # Combine all data
-        print(f"\n🏆 COMBINING ALL HISTORICAL DATA...")
+        print(f"\n COMBINING ALL HISTORICAL DATA...")
         
         all_matches_df = pd.DataFrame(all_matches)
         all_team_stats_df = pd.DataFrame(all_team_stats)
@@ -306,29 +306,29 @@ class HistoricalFootballDataCollector:
         all_matches_df.to_csv(f'{self.data_dir}/all_match_results.csv', index=False)
         all_team_stats_df.to_csv(f'{self.data_dir}/all_team_stats.csv', index=False)
         
-        print(f"\n🎾 15-YEAR DATA COLLECTION COMPLETE!")
+        print(f"\n 15-YEAR DATA COLLECTION COMPLETE!")
         print(f"{'='*60}")
-        print(f"📊 Total Matches: {total_matches:,} (vs tennis model's 95,000+)")
-        print(f"🏟️  Total Team Records: {len(all_team_stats_df):,}")
-        print(f"📈 Seasons Covered: {len(seasons)} (2009-2024)")
-        print(f"⚽ Features per Match: {len(all_matches_df.columns)}")
+        print(f" Total Matches: {total_matches:,} (vs tennis model's 95,000+)")
+        print(f"  Total Team Records: {len(all_team_stats_df):,}")
+        print(f" Seasons Covered: {len(seasons)} (2009-2024)")
+        print(f" Features per Match: {len(all_matches_df.columns)}")
         print(f"📋 Team Stats Features: {len(all_team_stats_df.columns)}")
         
         # Data quality summary
         results_distribution = all_matches_df['result'].value_counts()
-        print(f"\n📈 MATCH RESULTS DISTRIBUTION:")
-        print(f"   🏠 Home Wins (H): {results_distribution.get('H', 0):,} ({results_distribution.get('H', 0)/total_matches*100:.1f}%)")
-        print(f"   🤝 Draws (D): {results_distribution.get('D', 0):,} ({results_distribution.get('D', 0)/total_matches*100:.1f}%)")
-        print(f"   ✈️  Away Wins (A): {results_distribution.get('A', 0):,} ({results_distribution.get('A', 0)/total_matches*100:.1f}%)")
+        print(f"\n MATCH RESULTS DISTRIBUTION:")
+        print(f"    Home Wins (H): {results_distribution.get('H', 0):,} ({results_distribution.get('H', 0)/total_matches*100:.1f}%)")
+        print(f"    Draws (D): {results_distribution.get('D', 0):,} ({results_distribution.get('D', 0)/total_matches*100:.1f}%)")
+        print(f"     Away Wins (A): {results_distribution.get('A', 0):,} ({results_distribution.get('A', 0)/total_matches*100:.1f}%)")
         
-        print(f"\n🎯 DATASET READY FOR 85% ACCURACY TARGET!")
+        print(f"\n DATASET READY FOR 85% ACCURACY TARGET!")
         print(f"📚 Tennis-level comprehensive historical foundation established")
         
         return all_matches_df, all_team_stats_df
     
     def build_elo_from_history(self, matches_df):
         """Build ELO ratings from 15 years of historical data"""
-        print(f"\n🎾 BUILDING ELO SYSTEM FROM 15-YEAR HISTORY...")
+        print(f"\n BUILDING ELO SYSTEM FROM 15-YEAR HISTORY...")
         
         elo_system = FootballEloSystem()
         
@@ -336,7 +336,7 @@ class HistoricalFootballDataCollector:
         matches_df['date'] = pd.to_datetime(matches_df['date'])
         matches_sorted = matches_df.sort_values('date')
         
-        print(f"📈 Processing {len(matches_sorted):,} matches chronologically...")
+        print(f" Processing {len(matches_sorted):,} matches chronologically...")
         
         # Process matches to build ELO
         elo_system.build_from_match_data(matches_sorted)
@@ -348,7 +348,7 @@ class HistoricalFootballDataCollector:
         # Get current top teams
         top_teams = elo_system.get_top_teams(20)
         
-        print(f"\n🏆 ELO RATINGS AFTER 15 YEARS:")
+        print(f"\n ELO RATINGS AFTER 15 YEARS:")
         for i, (team, elo) in enumerate(top_teams, 1):
             print(f"{i:2d}. {team:<25} {elo:4.0f}")
         
@@ -357,9 +357,9 @@ class HistoricalFootballDataCollector:
 def main():
     collector = HistoricalFootballDataCollector()
     
-    print("🚀 Starting 15-year historical data collection")
-    print("🎾 Tennis-inspired comprehensive approach")
-    print("🎯 Target: Build foundation for 85% accuracy")
+    print(" Starting 15-year historical data collection")
+    print(" Tennis-inspired comprehensive approach")
+    print(" Target: Build foundation for 85% accuracy")
     
     # Collect 15 years of data
     matches_df, team_stats_df = collector.collect_15_year_history()
@@ -367,7 +367,7 @@ def main():
     # Build ELO system from historical data
     elo_system = collector.build_elo_from_history(matches_df)
     
-    print(f"\n✅ READY FOR TENNIS-LEVEL PREDICTION TRAINING!")
+    print(f"\n READY FOR TENNIS-LEVEL PREDICTION TRAINING!")
 
 if __name__ == "__main__":
     main()
