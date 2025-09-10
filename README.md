@@ -1,6 +1,6 @@
 # Football Match Prediction AI
 
-An AI-powered system to predict football match outcomes with high accuracy, inspired by tennis prediction models achieving 85%+ accuracy.
+An AI-powered system to predict football match outcomes with high accuracy, inspired by tennis prediction models achieving 85%+ accuracy. Which predicted 99 matches and got only 7 wrong
 
 **Key Innovation**: Uses tennis-inspired ELO rating system and XGBoost optimization to target 85% prediction accuracy.
 
